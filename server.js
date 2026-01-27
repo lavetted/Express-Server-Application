@@ -36,7 +36,7 @@ app.get("/", (req, res) => {
   res.sendFile("index.html", { root: "views" });
 });
 
-/* GET all anime */
+/* GET ALL anime */
 app.get("/anime", (req, res) => {
   res.json(animeList);
 });
