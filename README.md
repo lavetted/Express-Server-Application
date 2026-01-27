@@ -6,7 +6,7 @@ I am building a small backend-powered Anime Tracker where:
 
 - Anime titles are tracked
 
-- Each anime has reviews (recommended over episodes — simpler)
+- Each anime has reviews 
 
 ## Users can:
 
@@ -23,3 +23,16 @@ I am building a small backend-powered Anime Tracker where:
 - View everything on a rendered page
 
 - Add data through a form
+
+| Method | Route                | Description   |
+| ------ | -------------------- | ------------- |
+| GET    | `/anime`             | Get all anime |
+| GET    | `/anime/:id`         | Get one anime |
+| POST   | `/anime`             | Add anime     |
+| PUT    | `/anime/:id`         | Update anime  |
+| DELETE | `/anime/:id`         | Delete anime  |
+| POST   | `/anime/:id/reviews` | Add review    |
+
+## My Struggles
+
+- This was so hard for me because am use to doing my HTML and CSS then 
