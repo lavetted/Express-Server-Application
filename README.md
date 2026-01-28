@@ -1,5 +1,8 @@
 # Anime Tracker
 
+![Anime Tracker](image/Screenshot%202026-01-27%20191118.png)
+
+
 I am building a small backend-powered Anime Tracker where:
 
 - Users exist (simple, no auth)
