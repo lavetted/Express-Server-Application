@@ -17,12 +17,12 @@ body {
 }
 
 h1 {
+  color: white;
   font-size: 45px;
 }
 
 ul {
-  background-color: white;
-  padding: 20px;
+  background-color: black;
   border-radius: 5px;
 }
 
@@ -31,4 +31,14 @@ li {
   text-shadow: none;
   font-size: 15px;
   margin: 10px 0;
+}
+
+h3 {
+  background-color: black;
+  color: violet;
+  text-shadow: none;
+  font-size: 20px;
+  margin: 5px 0;
+  padding: 5px;
+  border-radius: 10px;
 }

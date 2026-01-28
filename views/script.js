@@ -11,6 +11,7 @@ async function loadAnime() {
 
   container.innerHTML = "";
 
+  // DISPLAY ANIME
   data.forEach((anime) => {
     const div = document.createElement("div");
     div.innerHTML = `
