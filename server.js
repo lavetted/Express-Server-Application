@@ -6,12 +6,12 @@ const app = express();
 const PORT = 3000;
 
 app.use(express.json());
+// render
 app.use(express.static("views"));
-
+app.use(express.static("./styles"));
 app.use(express.urlencoded({ extended: true }));
 app.set("views", "./views");
 app.set("view engine", "html");
-app.use(express.static("./styles"));
 
 /* ---------- THREE DATABASE categories ---------- */
 let animeList = [
@@ -31,6 +31,7 @@ let animeList = [
 
 // ROUTES
 
+//  render home page
 app.get("/", (req, res) => {
   res.sendFile("index.html", { root: "views" });
 });
