@@ -31,7 +31,8 @@ let animeList = [
 
 // ROUTES
 
-//  render home page
+/* render home page */
+
 app.get("/", (req, res) => {
   res.sendFile("index.html", { root: "views" });
 });
@@ -111,7 +112,7 @@ app.post("/anime/:id/reviews", validateReview, (req, res) => {
   res.json(anime);
 });
 
-//  ERROR HANDLER */
+//  ERROR global HANDLER
 app.use((err, req, res, next) => {
   console.error(err.stack);
   res.status(500).json({ error: "Something went wrong!" });
