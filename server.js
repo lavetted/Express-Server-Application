@@ -5,7 +5,6 @@ import validateReview from "./middleware/validateReview.js";
 const app = express();
 const PORT = 3000;
 
-/* ---------- MIDDLEWARE ---------- */
 app.use(express.json());
 app.use(express.static("views"));
 
@@ -14,7 +13,7 @@ app.set("views", "./views");
 app.set("view engine", "html");
 app.use(express.static("./styles"));
 
-/* ---------- FAKE DATABASE ---------- */
+/* ---------- THREE DATABASE categories ---------- */
 let animeList = [
   {
     id: 1,
@@ -26,22 +25,24 @@ let animeList = [
     id: 2,
     title: "Naruto",
     genre: "Adventure",
-    reviews: ["Classic ninja anime"],
+    reviews: ["Classic", "Too many fillers"],
   },
 ];
 
-/* ---------- ROUTES ---------- */
+// ROUTES
 
 app.get("/", (req, res) => {
   res.sendFile("index.html", { root: "views" });
 });
 
 /* GET ALL anime */
+
 app.get("/anime", (req, res) => {
   res.json(animeList);
 });
 
 /* GET one anime */
+
 app.get("/anime/:id", (req, res) => {
   const anime = animeList.find((a) => a.id == req.params.id);
 
@@ -53,6 +54,7 @@ app.get("/anime/:id", (req, res) => {
 });
 
 /* ADD anime */
+
 app.post("/anime", validateAnime, (req, res) => {
   const { title, genre } = req.body;
 
@@ -68,6 +70,7 @@ app.post("/anime", validateAnime, (req, res) => {
 });
 
 /* UPDATE anime */
+
 app.put("/anime/:id", validateAnime, (req, res) => {
   const anime = animeList.find((a) => a.id == req.params.id);
 
@@ -82,6 +85,7 @@ app.put("/anime/:id", validateAnime, (req, res) => {
 });
 
 /* DELETE anime */
+
 app.delete("/anime/:id", (req, res) => {
   const index = animeList.findIndex((a) => a.id == req.params.id);
 
@@ -94,6 +98,7 @@ app.delete("/anime/:id", (req, res) => {
 });
 
 /* ADD review */
+
 app.post("/anime/:id/reviews", validateReview, (req, res) => {
   const anime = animeList.find((a) => a.id == req.params.id);
 
@@ -103,6 +108,12 @@ app.post("/anime/:id/reviews", validateReview, (req, res) => {
 
   anime.reviews.push(req.body.review);
   res.json(anime);
+});
+
+//  ERROR HANDLER */
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).json({ error: "Something went wrong!" });
 });
 
 /* START SERVER */

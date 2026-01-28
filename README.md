@@ -35,4 +35,5 @@ I am building a small backend-powered Anime Tracker where:
 
 ## My Struggles
 
-- This was so hard for me because am use to doing my HTML and CSS then 
+- This was so hard for me because am use to doing my HTML and CSS then do some JS and this was reverse. 
+- I had a hard time using postman because it was not showing it was working but, my localHost:3000 would show me if it wasn't working so that's how I was checking some of the time.
